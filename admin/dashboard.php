@@ -5,6 +5,18 @@
                                     <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-dashboard"></i> Dashboard </li>
                                 </ol>
                              </nav>
+                             <?php
+                                $query_student= mysqli_query($link,"SELECT * FROM `student_info`");
+                                $query_user= mysqli_query($link,"SELECT * FROM `users`");
+
+                                $count_student = mysqli_num_rows($query_student);
+                                $count_user = mysqli_num_rows($query_user);
+
+                               
+
+                                
+                             
+                             ?>
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="card ">
@@ -12,14 +24,14 @@
                                                 <div class="row">
                                                     <div class="col-3" style="color:white"><i class="fa fa-users fa-5x"></i></div>
                                                     <div class="col-9" style="color:white">
-                                                        <div class="float-right" style="font-size:40px">1</div>
+                                                        <div class="float-right" style="font-size:40px"><?= $count_student;?></div>
                                                         <div class="clearfix"></div>
                                                         <div class="float-right">All Students</div>
                                                     </div>
 
                                                 </div>
                                             </div>
-                                            <a href="">
+                                            <a href="index.php?page=all_student">
                                                 <div class="card-footer">
                                                     <span class="float-left">View all students</span>
                                                     <span class="float-right"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
@@ -34,38 +46,16 @@
                                                 <div class="row">
                                                     <div class="col-3" style="color:white"><i class="fa fa-users fa-5x"></i></div>
                                                     <div class="col-9" style="color:white">
-                                                        <div class="float-right" style="font-size:40px">1</div>
+                                                        <div class="float-right" style="font-size:40px"><?= $count_user;?></div>
                                                         <div class="clearfix"></div>
-                                                        <div class="float-right">All Students</div>
+                                                        <div class="float-right">All Users</div>
                                                     </div>
 
                                                 </div>
                                             </div>
-                                            <a href="">
+                                            <a href="index.php?page=all_users">
                                                 <div class="card-footer">
-                                                    <span class="float-left">View all students</span>
-                                                    <span class="float-right"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="card ">
-                                            <div class="card-header bg-primary">
-                                                <div class="row">
-                                                    <div class="col-3" style="color:white"><i class="fa fa-users fa-5x"></i></div>
-                                                    <div class="col-9" style="color:white">
-                                                        <div class="float-right" style="font-size:40px">1</div>
-                                                        <div class="clearfix"></div>
-                                                        <div class="float-right">All Students</div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <a href="">
-                                                <div class="card-footer">
-                                                    <span class="float-left">View all students</span>
+                                                    <span class="float-left">View all users</span>
                                                     <span class="float-right"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                                                     <div class="clearfix"></div>
                                                 </div>
@@ -74,9 +64,7 @@
                                     </div>
                                     
                                     </div>
-
-
-                                </div>  
+ 
                                 <hr>
                                 <div class="table-responsive">
                                     <table id="data" class="table table-hover table-bordered table-striped" style="width:100%">

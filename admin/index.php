@@ -63,8 +63,8 @@ if (!isset($_SESSION['user_login'])) {
             </ul>
             <ul class="nav navbar-nav navbar-right">
             <li class="nav-item"><a class="nav-link" href="logout.php"><i class="fa fa-user"></i> Welcome</a></li>
-            <li class="nav-item"><a class="nav-link" href="logout.php"><i class="fa fa-user-plus"></i> Add user</a></li>
-            <li class="nav-item"><a class="nav-link" href="logout.php"><i class="fa fa-user"></i> Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="registration.php"><i class="fa fa-user-plus"></i> Add user</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php?page=profile"><i class="fa fa-user"></i> Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
             </ul>
             <!--<form class="form-inline my-2 my-lg-0">

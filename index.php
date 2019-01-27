@@ -30,16 +30,16 @@
                            <td>
                            <select class="form-control" name="choose" id="choose">
                            <option value="">--Select--</option>
-                           <option value="1">class 1</option>
-                           <option value="2">class 2</option>
-                           <option value="3">class 3</option>
-                           <option value="4">class 4</option>
-                           <option value="5">class 5</option>
-                           <option value="6">class 6</option>
-                           <option value="7">class 7</option>
-                           <option value="8">class 8</option>
-                           <option value="9">class 9</option>
-                           <option value="10">class 10</option>
+                           <option value="1st">class 1</option>
+                           <option value="2nd">class 2</option>
+                           <option value="3rd">class 3</option>
+                           <option value="4th">class 4</option>
+                           <option value="5th">class 5</option>
+                           <option value="6th">class 6</option>
+                           <option value="7th">class 7</option>
+                           <option value="8th">class 8</option>
+                           <option value="9th">class 9</option>
+                           <option value="10th">class 10</option>
 
                            </select>
                            </td>
@@ -58,6 +58,62 @@
             </form>
       </div>
      </div>
+
+     <?php
+
+     require_once './admin/database.php';
+      if(isset($_POST['show_info'])){
+
+            $class = $_POST['choose'];
+            $roll = $_POST['roll'];
+            
+            $query = mysqli_query($link,"SELECT * FROM `student_info` WHERE `class`='$class' AND `roll`='$roll'");
+            if(mysqli_num_rows($query)==1){
+               $stu_data = mysqli_fetch_assoc($query);
+               ?>
+  <div class="row">
+      <div class="col-sm-6 offset-3">
+         <table class="table table-bordered">
+            <tr>
+               <td rowspan="5"><img src="admin/student_images/<?= $stu_data['photo']?>" alt="" width="150" height="150" class="img-thumbnail"></td>
+               <td>Name</td>
+               <td><?=ucwords($stu_data['name']);?></td>
+
+            </tr>
+            <tr>
+               <td>Class</td>
+               <td><?= $stu_data['class'];?></td>
+
+            </tr>
+            <tr>
+               <td>Roll</td>
+               <td><?= $stu_data['roll'];?></td>
+
+            </tr>
+            <tr>
+               <td>City</td>
+               <td><?=ucwords($stu_data['city']);?></td>
+
+            </tr>
+            <tr>
+               <td>Parrent Contact</td>
+               <td><?= $stu_data['parrentcontact'];?></td>
+
+            </tr>
+         </table>
+      </div>
+   </div>
+               <?php
+            } else{
+               ?>
+               <script>
+                  alert('Data Not Found');
+               </script>
+               <?php
+            }
+        
+      }
+     ?>
   </div>
 
  
