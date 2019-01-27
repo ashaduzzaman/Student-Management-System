@@ -1,14 +1,6 @@
-<h1 class="text-primary"><i class="fa fa-pencil-square-o"></i> Update Student</h1>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-pencil-square-o"></i> Update Student </li>
-        </ol>
-    </nav>
-
-
 <?php
 
-    require_once 'database.php';
+    //require_once 'database.php';
 
     $id= base64_decode($_GET['id']);
 
@@ -51,16 +43,20 @@
         $query= "UPDATE `student_info` SET `name`='$name',`roll`='$roll',`class`='$class',`city`='$city',`parrentcontact`='$parrentcontact' WHERE `id`='$id'";
      
         $result=mysqli_query($link,$query);
-        if($result){
-            
+        if(!$result){
+        
+        } else{
             header("location:index.php?page=all_student");
-         
-     
-         
-        } 
+        }
      }
 
 ?>
+<h1 class="text-primary"><i class="fa fa-pencil-square-o"></i> Update Student</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-pencil-square-o"></i> Update Student </li>
+        </ol>
+    </nav>
 
 
 
